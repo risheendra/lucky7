@@ -7,13 +7,12 @@
 //
 
 
-// C++ program to find sum of multiples of a number
-// up to N efficiently
+
 #include <iostream>
+#include <string>
+#include <fstream>
 using namespace std;
 
-// Function for calculating sum of multiples of
-// a upto N
 
 void largeSmall()
 {
@@ -86,7 +85,93 @@ void sum()
     }
  
 }
-// Driver code
+// start of part4
+
+void palindrome()
+{
+    char string1[20];
+       int i, length;
+       int flag = 0;
+       
+       cout << "Enter a string: "; cin >> string1;
+       
+       length = strlen(string1);
+       
+       for(i=0;i < length ;i++){
+           if(string1[i] != string1[length-i-1]){
+               flag = 1;
+               break;
+           }
+       }
+       
+       if (flag) {
+           cout << string1 << " is not a palindrome" << endl;
+       }
+       else {
+           cout << string1 << " is a palindrome" << endl;
+       }
+}
+//start of part 5
+
+void prime()
+{
+    int n, i;
+    bool isPrime = true;
+    cout <<"enter a positive integer: ";
+    cin >> n;
+    for (i = 2; i <= n / 2; ++i)
+    {
+        if (n % i == 0)
+        {
+            isPrime = false;
+            break;
+        }
+    }
+    if (isPrime)
+        cout << "This is a prime number";
+    else
+        cout << "This is not a prime number";
+}
+//start of part 6
+void num()
+{
+      int sum = 0;
+        int i;
+        int n = 5;
+        int num[5]={1, 2, 3, 4, 10};
+        int average;
+    for (i = 0; i < n; i++)
+        {
+          
+            sum += num[i];
+        }
+        average = sum / n;
+        cout << "Average = " << average;
+}
+
+//start of part 7
+void positve()
+{
+     string line;
+       ifstream myfile("characters.txt");
+       int userinput = 0;
+       cout << "Please type number of strings " << endl;
+       cin >> userinput;
+       string * characters = new string[userinput];
+       if(!myfile)
+       {
+           cout << "no file";
+           exit(2);
+       }
+       
+           int i = 0;
+           while (i < userinput)
+           {
+               myfile >> characters[i];
+               i++;
+           }
+       
+}
 int main()
 {
     largeSmall();
@@ -95,6 +180,10 @@ int main()
     << a << " up to " << N << " = "
     << calculate_sum(a, N) << endl;
     sum();
+    palindrome();
+    prime();
+    num();
+    positve();
     return 0;
 }
 
